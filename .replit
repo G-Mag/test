@@ -1,2 +1,2 @@
 language = "c"
-run = "clang-7 -pthread -lm -o main week3_task.c; ./main"
+run = "clang-7 -pthread -lm -o main week4.c; ./main"
