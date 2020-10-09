@@ -5,8 +5,13 @@
 int add(int num1, int num2);
 int sub(int num1, int num2);
 int mult(int num1, int num2);
-int div(int num1, int num2);
+//int div(int num1, int num2);
 
+void div(int num1, int num2, int *quotient, int *remainder)
+{
+  *quotient = num1/num2;
+  *remainder = num1%num2;
+}
 
 // start main program
 int main()
@@ -15,7 +20,7 @@ int main()
   int a,b;
   int sum,subtract,multi;
   float division;
-
+  
   printf("Enter first value :");
   scanf("%d", &a);
   printf("Enter second value :");
@@ -24,12 +29,12 @@ int main()
   sum = add(a,b);
   subtract = sub(a,b);
   multi = mult(a,b);
-  division = div(a,b);
+  division = div(a,b,*quotient,*remainder);    // div(a,b)+(a%b/(float)b);
 
   printf("Value 1 add Value 2 is: %d\n", sum);
   printf("Value 1 subtract Value 2 is: %d\n", subtract);
   printf("Value 1 multiplied by Value 2 is: %d\n", multi);
-  printf("Value 1 divided by Value 2 is: %3.2f\n", division);
+  printf("Value 1 divided by Value 2 is: %.2f\n", division);
   
   return 0;
 }
@@ -65,15 +70,4 @@ int mult(int num1, int num2)
   times = num1 * num2;
 
   return times;
-}
-
-// Function returning num1 divided by num2.
-int div(int num1, int num2)
-{
-  // initalise variables, using float as divide could be floating point
-  float divide;
-
-  divide = (num1 / num2);
-
-  return divide;
 }
